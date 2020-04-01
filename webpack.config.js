@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path')
 
 const postCSSPlugins = [
   require('postcss-import'),
@@ -8,7 +8,7 @@ const postCSSPlugins = [
 ]
 
 module.exports = {
-  entry:  './app/assets/scripts/App.js',
+  entry: './app/assets/scripts/App.js',
   output: {
     filename: 'bundled.js',
     path: path.resolve(__dirname, 'app')
@@ -19,7 +19,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader', {loader: 'postcss-loader', options: {plugins: postCSSPlugins}}]
+        use: ['style-loader', 'css-loader?url=false', {loader: 'postcss-loader', options: {plugins: postCSSPlugins}}]
       }
     ]
   }
